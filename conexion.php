@@ -1,9 +1,9 @@
 <?php
 
 $conexion = mysqli_connect(
-    "localhost",
+    "db",
     "root",
-    "",
+    "root",
     "bd_estudiantes"
 );
 
