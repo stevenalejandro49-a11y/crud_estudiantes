@@ -11,7 +11,7 @@ $resultado = mysqli_query($conexion, $sql);
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Lista estudiantes</title>
+    <title>Lista de estudiantes</title>
 </head>
 <body>
 
@@ -22,7 +22,8 @@ $resultado = mysqli_query($conexion, $sql);
 <tr>
     <th>ID</th>
     <th>Nombre</th>
-    <th>Correo</th>
+    <th>Correosdsds</th>
+    <th>Acciones</th>
 </tr>
 
 <?php while($fila = mysqli_fetch_assoc($resultado)) { ?>
@@ -31,6 +32,15 @@ $resultado = mysqli_query($conexion, $sql);
     <td><?php echo $fila['id']; ?></td>
     <td><?php echo $fila['nombre']; ?></td>
     <td><?php echo $fila['correo']; ?></td>
+
+    <td>
+        <a href="editar.php?id=<?php echo $fila['id']; ?>">Editar</a> |
+        <a href="eliminar.php?id=<?php echo $fila['id']; ?>"
+        onclick="return confirm('¿Está seguro de eliminar este estudiante?');">
+        Eliminar
+        </a>
+    </td>
+
 </tr>
 
 <?php } ?>
