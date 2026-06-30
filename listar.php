@@ -9,20 +9,46 @@ $resultado = mysqli_query($conexion, $sql);
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="es">
+
 <head>
-    <title>Lista de estudiantes</title>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Lista de estudiantes</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
-<body>
+
+<body class="bg-light">
+
+<div class="container mt-5">
+
+<div class="card shadow">
+
+<div class="card-header bg-primary text-white">
 
 <h2>Lista de estudiantes</h2>
 
-<table border="1">
+</div>
+
+<div class="card-body">
+
+<h2>Lista de estudiantes</h2>
+
+<a href="index.php" class="btn btn-success mb-3">
+➕ Nuevo estudiante
+</a>
+
+<table class="table table-striped table-hover">
 
 <tr>
     <th>ID</th>
     <th>Nombre</th>
-    <th>Correosdsds</th>
+    <th>Correo</th>
     <th>Acciones</th>
 </tr>
 
@@ -34,13 +60,17 @@ $resultado = mysqli_query($conexion, $sql);
     <td><?php echo $fila['correo']; ?></td>
 
     <td>
-        <a href="editar.php?id=<?php echo $fila['id']; ?>">Editar</a> |
-        <a href="eliminar.php?id=<?php echo $fila['id']; ?>"
-        onclick="return confirm('¿Está seguro de eliminar este estudiante?');">
-        Eliminar
+        <a href="editar.php?id=<?php echo $fila['id']; ?>"
+            class="btn btn-warning btn-sm">
+            Editar
+            </a>
+
+            <a href="eliminar.php?id=<?php echo $fila['id']; ?>"
+            class="btn btn-danger btn-sm"
+            onclick="return confirm('¿Está seguro de eliminar este estudiante?');">
+            Eliminar
         </a>
     </td>
-
 </tr>
 
 <?php } ?>
@@ -49,7 +79,18 @@ $resultado = mysqli_query($conexion, $sql);
 
 <br>
 
-<a href="index.php">Volver</a>
+<a href="index.php" class="btn btn-secondary">
+Volver
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
+
 </html>
