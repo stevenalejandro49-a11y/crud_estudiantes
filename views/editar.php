@@ -1,6 +1,12 @@
 <?php
 
-include("conexion.php");
+session_start();
+if(!isset($_SESSION["usuario"])) {
+    header("location: /auth/login.php");
+    exit();
+}
+
+include("../config/conexion.php");
 
 $id = $_GET['id'];
 
@@ -12,8 +18,6 @@ $fila = mysqli_fetch_assoc($resultado);
 
 ?>
 
-<!DOCTYPE html>
-<html>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -28,15 +32,17 @@ $fila = mysqli_fetch_assoc($resultado);
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
 
+ <link href="../assets/css/estilos.css" rel="stylesheet">
+ 
 </head>
 
-<body class="bg-light">
+<body class="container">
 
-<div class="container mt-5">
+    <div class="container mt-5">
 
-<div class="card shadow">
+    <div class="card shadow">
 
-<div class="card-header bg-warning">
+    <div class="card-header bg-primary text-white">
 
 <h2>Editar estudiante</h2>
 
@@ -44,15 +50,14 @@ $fila = mysqli_fetch_assoc($resultado);
 
 <div class="card-body">
 
-<body>
 
-<h2>Editar estudiante</h2>
-
-<form action="actualizar.php" method="POST">
+<form action="../actions/actualizar.php" method="POST">
 
     <div class="mb-3">
 
-        <label class="form-label">Nombre</label>
+        <input type="hidden" name="id" value="<?php echo $fila['id']; ?>">
+
+        <label class="form-label fw-bold">Nombre</label>
 
         <input
         type="text"
@@ -64,7 +69,7 @@ $fila = mysqli_fetch_assoc($resultado);
 
         <div class="mb-3">
 
-        <label class="form-label">Correo</label>
+        <label class="form-label fw-bold">Correo</label>
 
         <input
         type="email"
@@ -74,13 +79,15 @@ $fila = mysqli_fetch_assoc($resultado);
 
     </div>
 
-</form>
-    <button type="submit" class="btn btn-primary" >
+        <button type="submit" class="btn btn-primary" >
         Actualizar estudiante
-    </button>
+        </button>
+
+</form>
 
 
-    <a href="listar.php" class="btn btn-secondary">Volver</a>
+
+    <br><a href="listar.php" class="btn btn-secondary">Volver</a>
 
 </div>
 
