@@ -26,15 +26,39 @@ Sistema web desarrollado en PHP para la gestión de estudiantes. Permite iniciar
 
 ## Capturas
 
-(Login)
+## Capturas
 
-(Inicio)
+### Login
 
-(Listado)
+![Login](screenshots/login.png)
 
-(Editar)
+### Inicio
 
-(Alertas)
+![Inicio](screenshots/inicio.png)
+
+### Listado
+
+![Listado](screenshots/listado.png)
+
+### Editar
+
+![Editar](screenshots/editar.png)
+
+### SweetAlert - Login
+
+![SweetAlert Login](screenshots/sweetalert_login.png)
+
+### SweetAlert - Guardar
+
+![SweetAlert Guardar](screenshots/sweetalert_guardar.png)
+
+### SweetAlert - Editar
+
+![SweetAlert Editar](screenshots/sweetalert_editar.png)
+
+### SweetAlert - Cerrar sesión
+
+![SweetAlert Logout](screenshots/sweetalert_logout.png)
 
 ## Cómo ejecutar el proyecto
 
